@@ -1,0 +1,5 @@
+<div class="chartStyle m-auto pt-3">
+	<ng-container *ngIf="employees.length != 0">
+		<apx-chart [series]="chartSeries" [chart]="chartDetails" [labels]="chartLabels" [title]="chartTitle"></apx-chart>
+	</ng-container>
+</div>

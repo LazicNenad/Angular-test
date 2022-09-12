@@ -1,0 +1,41 @@
+<div class="container pt-3">
+	<h1>Employees Table</h1>
+
+
+	<div class="mat-elevation-z8">
+		<table mat-table [dataSource]="dataSource">
+			<!-- Name Column -->
+			<ng-container matColumnDef="employeeName">
+				<th mat-header-cell *matHeaderCellDef> Name </th>
+				<td mat-cell *matCellDef="let element"> {{element.EmployeeName == null ? 'Unknown Employee' :
+					element.EmployeeName}} </td>
+			</ng-container>
+
+			<!-- Time Column -->
+			<ng-container matColumnDef="time">
+				<th mat-header-cell *matHeaderCellDef> Total Time in Month. </th>
+				<td mat-cell *matCellDef="let element"> {{element.time}} hrs </td>
+			</ng-container>
+
+			<!-- Time Column -->
+			<ng-container matColumnDef="actions">
+				<th mat-header-cell *matHeaderCellDef> Actions </th>
+				<td mat-cell *matCellDef="let element"> <a href="#">Edit</a> </td>
+			</ng-container>
+
+
+
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr [ngClass]="{'error': this.element.time< 100}" mat-row
+				*matRowDef="let row; columns: displayedColumns; let element"></tr>
+		</table>
+
+		<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of employees">
+		</mat-paginator>
+	</div>
+	<hr>
+	<div class="container pt-3 m-auto">
+		<h1>Pie Chart</h1>
+		<app-pie-chart-employees></app-pie-chart-employees>
+	</div>
+</div>

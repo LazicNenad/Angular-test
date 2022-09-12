@@ -1,0 +1,1 @@
+export const MS_TO_HOURS_RATIO = 3600000;
